@@ -3,7 +3,6 @@ title: "EEB459 group assignment 4"
 author: "Meng"
 output: pdf_document
 fontsize: 11pt
-geometry: margin=1.5cm
 ---
 
 ```{r setup, include=FALSE}
@@ -200,7 +199,7 @@ p0=0.5
 g=500
 outputa<-c()
 for (i in 1:5){
-    outputa<-append(outputa, DoManyGenerations(h, s, n, p0, g), after = length(outputa))}
+outputa<-append(outputa, DoManyGenerations(h, s, n, p0, g), after = length(outputa))}
 # b
 h=0.5
 s=0.1
@@ -209,7 +208,7 @@ p0=0.5
 g=500
 outputb<-c()
 for (i in 1:5){
-    outputb<-append(outputb, DoManyGenerations(h, s, n, p0, g), after = length(outputb))}
+outputb<-append(outputb, DoManyGenerations(h, s, n, p0, g), after = length(outputb))}
 # c
 h=0.5
 s=0.01
@@ -218,7 +217,7 @@ p0=0.5
 g=500
 outputc<-c()
 for (i in 1:5){
-    outputc<-append(outputc, DoManyGenerations(h, s, n, p0, g), after = length(outputc))}
+outputc<-append(outputc, DoManyGenerations(h, s, n, p0, g), after = length(outputc))}
 # d
 h=0.5
 s=0.01
@@ -227,7 +226,7 @@ p0=0.5
 g=500
 outputd<-c()
 for (i in 1:5){
-    outputd<-append(outputd, DoManyGenerations(h, s, n, p0, g), after = length(outputd))}
+outputd<-append(outputd, DoManyGenerations(h, s, n, p0, g), after = length(outputd))}
 # e
 h=0.5
 s=0.01
@@ -236,7 +235,7 @@ p0=0.05
 g=500
 outpute<-c()
 for (i in 1:5){
-    outpute<-append(outpute, DoManyGenerations(h, s, n, p0, g), after = length(outpute))}
+outpute<-append(outpute, DoManyGenerations(h, s, n, p0, g), after = length(outpute))}
 # f
 h=0.5 
 s=0.01
@@ -244,7 +243,7 @@ n=10^6
 p0=0.05
 outputf<-c()
 for (i in 1:5){
-    outputf<-append(outputf, DoManyGenerations(h, s, n, p0, g), after = length(outputf))}
+outputf<-append(outputf, DoManyGenerations(h, s, n, p0, g), after = length(outputf))}
 # g
 h=0.5
 s=0.01
@@ -253,25 +252,28 @@ p0=0.005
 g=500
 outputg<-c()
 for (i in 1:5){
-    outputg<-append(outputg, DoManyGenerations(h, s, n, p0, g), after = length(outputg))}
+outputg<-append(outputg, DoManyGenerations(h, s, n, p0, g), after = length(outputg))}
+```
 
+
+```{r echo=FALSE}
 # plot allele frequency over time
 par(mfrow=c(2,4))
 # a
 ThisLength = length(outputa)/5
-plot(rep(1: ThisLength, 5), outputa, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="a. h=0.5,s=0.1,n=100,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
+plot(rep(1: ThisLength, 5), outputa, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="a",sub="s=0.1,n=100,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
 # b
-plot(rep(1: ThisLength, 5), outputb, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="b. h=0.5,s=0.1,n=10^6,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
+plot(rep(1: ThisLength, 5), outputb, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="b", sub="s=0.1,n=10^6,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
 # c
-plot(rep(1: ThisLength, 5), outputc, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="c. h=0.5,s=0.01,n=100,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
+plot(rep(1: ThisLength, 5), outputc, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="c", sub="s=0.01,n=100,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
 # d
-plot(rep(1: ThisLength, 5), outputd, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="d. h=0.5,s=0.01,n=10^6,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
+plot(rep(1: ThisLength, 5), outputd, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="d",sub ="s=0.01,n=10^6,p0=0.5", xlab = "Generation", ylab ="Allele frequency")
 # e
-plot(rep(1: ThisLength, 5), outpute, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="e. h=0.5,s=0.01,n=100,p0=0.05", xlab = "Generation", ylab ="Allele frequency")
+plot(rep(1: ThisLength, 5), outpute, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="e", sub="s=0.01,n=100,p0=0.05", xlab = "Generation", ylab ="Allele frequency")
 # f
-plot(rep(1: ThisLength, 5), outputf, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="f. h=0.5,s=0.01,n=10^6,p0=0.05", xlab = "Generation", ylab ="Allele frequency")
+plot(rep(1: ThisLength, 5), outputf, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="f", sub="s=0.01,n=10^6,p0=0.05", xlab = "Generation", ylab ="Allele frequency")
 # g
-plot(rep(1: ThisLength, 5), outputg, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="g. h=0.5,s=0.01,n=10^6,p0=0.005", xlab = "Generation", ylab ="Allele frequency")
+plot(rep(1: ThisLength, 5), outputg, col = c(rep("red", ThisLength), rep("blue", ThisLength), rep("black", ThisLength), rep("green", ThisLength), rep("orange", ThisLength)), main="g",sub="s=0.01,n=10^6,p0=0.005", xlab = "Generation", ylab ="Allele frequency")
 ```
 
 ### Results
@@ -319,10 +321,69 @@ for (i in 1:5){
 
 ## 7) NewMutationManyTimes()
 ```{r}
-# NewMutationManyTimes <- function(h, s, popSize, m){
-#     
-# }
+DoManyGenerations <- function(h, s, popSize, p0, g){
+    p_list <- c(p0)
+    for(i in 1:g){
+        p<-DoOneFullGeneration(h, s, n, p0)
+        p_list<-append(p_list, p, after = length(p_list))
+        p0<-p
+    }
+    return(p_list)
+}
+
+
+NewMutationManyTimes <- function(h, s, popSize, m){
+    p0 = 1/(2*popSize)
+    p_list <- c()
+    for (i in 1:m){
+        p_final = DoManyGenerationsV2(h, s, n, p0, gmax=2000)[2]
+        p_list <- append(p_list, p_final, after = length(p_list))
+    }
+    return(p_list)
+}
+
+# m=1000
+m = 500000
+# a
+h = 0.5
+s = 0
+popSize = 1000
+sim_a <- NewMutationManyTimes(h, s, popSize, m)
+sum(sim_a != 0)/m
+mean(subset(sim_a, sim_a!= 0))
+
+# b
+h = 0.5
+s = 0.001
+popSize = 1000
+sim_b <- NewMutationManyTimes(h, s, popSize, m)
+sum(sim_b != 0)/m
+mean(subset(sim_b, sim_b!= 0))
+
+# c
+h = 0.5
+s = 0.01
+popSize = 1000
+sim_c <- NewMutationManyTimes(h, s, popSize, m)
+sum(sim_c != 0)/m
+mean(subset(sim_c, sim_b!= 0))
+
+# d
+h = 0.5
+s = 0.001
+popSize = 10^5
+sim_d <- NewMutationManyTimes(h, s, popSize, m)
+sum(sim_d != 0)/m
+mean(subset(sim_d, sim_d!= 0))
+
+# e
+h = 0.5
+s = 0.01
+popSize = 10^5
+sim_e <- NewMutationManyTimes(h, s, popSize, m)
+sum(sim_e != 0)/m
+mean(subset(sim_e, sim_e!= 0))
 ```
 
 ### Results
-
+wait till the lecture on fixation probability
